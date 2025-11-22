@@ -10,16 +10,12 @@ jobs:
   tfsec:
     name: Run tfsec
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Terraform (optional, not required to run tfsec)
-        uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: '1.5.0' # optional
-
       - name: Run tfsec
-        uses: aquasecurity/tfsec-action@v1
+        uses: aquasecurity/tfsec-action@v1.0.3
         with:
           args: --format sarif
